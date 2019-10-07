@@ -89,21 +89,4 @@ func DeletePerson(person models.Person){
 	}
 }
 
-//UpdatePerson updates and existing person
-func UpdatePerson(person models.Person, personID string) {
-	doc := db.Collection(COLLECTIONNAME).FindOneAndUpdate(
-		context.Background(),
-		bson.NewDocument(
-			bson.EC.String("id", personID),
-		),
-		bson.NewDocument(
-			bson.EC.SubDocumentFromElements("$set",
-				bson.EC.String("firstname", person.Firstname),
-				bson.EC.String("lastname", person.Lastname),
-				bson.EC.String("contactinfo.city", person.City),
-				bson.EC.String("contactinfo.zipcode", person.Zipcode),
-				bson.EC.String("contactinfo.phone", person.Phone)),
-		),
-		nil)
-	fmt.Println(doc)
-}
+
