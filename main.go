@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 
-	"handlers"
-	"models"
+	"github.com/greatontime/gomongoapi/handlers"
+	"github.com/greatontime/gomongoapi/models"
 
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/mongo"
