@@ -91,11 +91,6 @@ func DeletePerson(person models.Person){
 
 //UpdatePerson updates and existing person
 func UpdatePerson(person models.Person, personID string) {
-	id ,err := primitive.ObjectIDFromHex(personID)
-	if err != nil {
-		log.Fatal(err)
-	}
-	
 	doc := db.Collection(COLLECTIONNAME).FindOneAndUpdate(
 		context.Background(),
 		bson.NewDocument(
