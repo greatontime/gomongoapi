@@ -9,7 +9,7 @@ import (
 
 	"github.com/greatontime/gomongoapi/handlers"
 	"github.com/greatontime/gomongoapi/models"
-	
+
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -62,7 +62,6 @@ func main() {
 	router.HandleFunc("/people/{id}", handlers.GetPersonEndpoint).Methods("GET")
 	router.HandleFunc("/people", handlers.CreatePersonEndpoint).Methods("POST")
 	router.HandleFunc("/people", handlers.DeletePersonEndpoint).Methods("DELETE")
-	router.HandleFunc("/people/{id}", handlers.UpdatePersonEndpoint).Methods("PUT")
 	fmt.Println("Starting server on port 8000...")
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
